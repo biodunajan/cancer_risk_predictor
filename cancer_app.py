@@ -23,7 +23,7 @@ col1, col2, col3 = st.columns(3)
 
 with st.sidebar:
     # Display logo for the landing page
-    image = Image.open('/Users/abiodunajanaku/Documents/ML_project/cancer_app/best.jpg')
+    image = Image.open('best.jpg')
     new_image = image.resize((1000, 450))
     st.image(new_image, use_column_width=True)
 
@@ -133,12 +133,12 @@ with st.container():
     def interactive_chart():
         global keep
         st.subheader("How you compare to Normal")
-        df = pd.read_csv('/Users/abiodunajanaku/Documents/ML_project/cancer_app/app_user_data.csv')
+        df = pd.read_csv('app_user_data.csv')
         df = df.append(user_input, ignore_index=False)
         df_1 = df.drop('gender', axis=1)
         last = df_1.iloc[-1].tolist()
         keep = [i for i in last]
-        normal = pd.read_excel('/Users/abiodunajanaku/Documents/ML_project/cancer_app/Normal Answer.xlsx')
+        normal = pd.read_excel('Normal Answer.xlsx')
         threshold = normal['Normal'][0:10].tolist()
         column = df_1.columns.tolist()
 
@@ -185,7 +185,7 @@ with st.container():
         with st.form('Form1', clear_on_submit=False):
             st.subheader("Your Result")
             # Loading the saved model
-            rf_model = joblib.load('/Users/abiodunajanaku/Documents/ML_project/cancer_app/final_rfmodel.joblib')
+            rf_model = joblib.load('final_rfmodel.joblib')
             submitted = st.form_submit_button('Submit to Predict')
             if submitted:
                 prediction = rf_model.predict(user_input)
@@ -201,7 +201,7 @@ with st.container():
                     interactive_chart()
                     low_risk()
 
-                df = pd.read_csv('/Users/abiodunajanaku/Documents/ML_project/cancer_app/app_user_data.csv')
+                df = pd.read_csv('app_user_data.csv')
                 df = df.append(user_input, ignore_index=False)
                 df.to_csv('app_user_data.csv', index=False)
 
