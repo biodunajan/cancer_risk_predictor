@@ -1,0 +1,5 @@
+gender,alcohol_level,smoke_ppy,sugar_intake,freq_exercise,freq_cold,sun_exposure,co2_emission,industrial_pollution,domestic_pollution
+0,0,0,3,3,0,3,3,3,4
+2,0,0,3,3,0,3,3,3,3
+0,0,0,3,3,3,3,3,3,3
+2,0,0,0,3,5,4,5,5,6
